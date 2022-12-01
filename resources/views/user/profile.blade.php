@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-5" style="margin-left: 5%;">
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="Siti Sridewi">
+				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="Joko Agus Budi Santoso">
 				  <label for="email">Nama</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
