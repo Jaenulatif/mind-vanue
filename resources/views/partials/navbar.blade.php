@@ -45,10 +45,10 @@
             </div>
 
             <!--- Input Search --->
-            <div class="mx-auto" style="padding-right: 12%; width: 50%;">
+            <div class="mx-auto" style="padding-right: 16.5%; width: 50%;">
                 <form class="form-group">
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control form-search" value="" placeholder="Kamu Nyari?" aria-label="search" aria-describedby="basic-addon1">
+                      <input type="text" class="form-control form-search" value="" placeholder="Kamu Nyari ?" aria-label="search" aria-describedby="basic-addon1">
                       <span class="input-group-text inline-icon material-symbols-outlined" id="basic-addon1" style="background-color: white;">Search</span>
                     </div>
                 </form>
@@ -69,9 +69,11 @@
                                     <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" >  
                                 </td>
                                 <td style="padding-left: 4%;">
+                                    <!--- Email --->
                                     <span class="inline-icon material-symbols-outlined">mail</span> oyenbarbar@gmail.com
                                     <tr>
                                         <td style="padding-left: 4%;">
+                                            <!--- Prodi --->
                                             <span class="inline-icon material-symbols-outlined">hub</span> Program Studi Informatika
                                         </td>  
                                     </tr>
