@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Profil</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 	<style type="text/css">
 		.avatar{
@@ -24,12 +25,12 @@
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">
 				<div class="avatar">
-					<img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" class="rounded-circle img-profile" alt="Avatar" />
+					<img src="https://i0.wp.com/republiccode.com/wp-content/uploads/2022/08/1660224919_maxresdefault.jpg" class="rounded-circle img-profile" alt="Avatar" />
 				</div>
 			</div>
 			<div class="col-5" style="margin-left: 5%;">
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="Oyen">
+				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="Oren">
 				  <label for="email">Nama</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">

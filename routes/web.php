@@ -25,6 +25,10 @@ Route::get('/user/buat', function () {
     return view('user.create_thread');
 });
 
+Route::get('/user/thread', function () {
+    return view('user.thread');
+});
+
 Route::get('/user/profile', function () {
     return view('user.profile');
 });
