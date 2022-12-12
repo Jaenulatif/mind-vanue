@@ -15,7 +15,7 @@
                 <div class="mb-4 row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email">
                     </div>
                 </div>
                 <div class="row">
