@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+
 Route::get('/user', function () {
     return view('user.home');
 });
@@ -31,8 +35,4 @@ Route::get('/user/thread', function () {
 
 Route::get('/user/profile', function () {
     return view('user.profile');
-});
-
-Route::get('/admin', function () {
-    return view('');
 });
