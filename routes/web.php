@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('');
+    return view('index');
 });
 
 Route::get('/admin', function () {
-    // return view('coba');
-    return view('index');
+    return view('admin.index');
 });
 
 Route::get('/user', function () {
@@ -37,7 +36,3 @@ Route::get('/user/thread', function () {
 Route::get('/user/profile', function () {
     return view('user.profile');
 });
-
-// Route::get('/admin', function () {
-//     return view('');
-// });

@@ -21,6 +21,7 @@
   </style>
 </head>
 <body style="background-color:#828282;">
+	@include('partials.navbar')
 <br><br>
 
 
