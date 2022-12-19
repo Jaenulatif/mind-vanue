@@ -49,9 +49,9 @@
     </style>
 
 </head>
-<body style="background-color: #AAAAAA;">
+@include('partials.main')
+<body>
     @include('partials.navbar')
-
     <div class="container" style="margin-top: 50px;">
     	<div class="row justify-content-md-center">
     		<div class="col col-lg-2" style="margin-right: 150px">
