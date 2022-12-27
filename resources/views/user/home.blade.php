@@ -44,6 +44,7 @@
             background-color: grey;
             color: white;
             box-shadow: 5px 10px #A0A0A0;
+            cursor: pointer;
         }
 
     </style>
