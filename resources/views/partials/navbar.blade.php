@@ -83,9 +83,9 @@
                     </div>
                     <p><hr class="dropdown-divider" style="background-color: #AAAAAA"></p>
                     <!--- Profile Page --->
-                    <a class="dropdown-item" href="user/profile"><p><span class="inline-icon material-icons">account_circle</span> Profile</a>
+                    <a class="dropdown-item" href="user/profile"><span class="inline-icon material-icons">account_circle</span>Profile</a>
                     <!--- Logout --->
-                    <a class="dropdown-item" href='/'><p><span class="inline-icon material-icons">exit_to_app</span> Logout</p></a>
+                    <a class="dropdown-item" href='/logout'><span class="inline-icon material-icons">exit_to_app</span>Logout</a>
                   </div>
                 </div>
             </div>
