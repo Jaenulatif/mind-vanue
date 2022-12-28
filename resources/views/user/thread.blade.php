@@ -61,8 +61,6 @@
             direction: ltr;
         }
 
-
-
         .content{
             height: auto;
         }
@@ -100,8 +98,6 @@
         }
 
         .panel {
-            width: 100%;
-            height: 100px;
             display: none;
         }
 
@@ -184,10 +180,12 @@
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
-                            <input type="text" name="comment" class="form-control comment-input">
+                            <textarea name="comment" class="form-control comment-input">
+                            </textarea>
+                            
                         </div>
                         <!--- Button Kementar--->
-                        <div class="col-2">
+                        <div class="col-2 div-cmnt">
                             <input type="submit" name="send" class="form-control comment-button" value="Komentar">
                         </div>
                     </div>
@@ -229,7 +227,7 @@
                                 </div>
                                 <!--- Input Komentar --->
                                 <div class="col">
-                                    <textarea rows="auto" name="reply" class="form-control reply-input" placeholder="Balas Komentar"></textarea>    
+                                    <textarea name="reply" class="form-control reply-input" placeholder="Balas Komentar"></textarea>    
                                 </div>
                                 <!--- Button Komentar Kirim dan batal --->
                                 <div class="col-sm-1" style="margin-top: 10px">
