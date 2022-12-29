@@ -56,7 +56,7 @@
     			<a type="button" href="" class="btn btn-lg border border-secondary" style="background-color: #E1701A; color: white; border-radius: 24px;">Thread Baru</a>
     		</div>
     		<div class="col col-lg-2">
-    			<a type="button" href="/user/buat" class="btn btn-lg border border-secondary" style="background-color: #F6DCBF; border-radius: 24px;">Buat Thread</a>
+    			<a type="button" href="/user/create-thread" class="btn btn-lg border border-secondary" style="background-color: #F6DCBF; border-radius: 24px;">Buat Thread</a>
     		</div>
     	</div>
     </div>

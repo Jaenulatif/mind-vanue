@@ -32,7 +32,16 @@ class UserSeeder extends Seeder
                 'lastname' => 'Pak Ramli',
                 'email' => 'pakramli@gmail.com',
                 'picture' => 'profil02.png',
-                'idnumber' => '4',
+                'idnumber' => '2',
+            ],
+            [
+                'username' => 'busum',
+                'password' => bcrypt('Dosen_123'),
+                'firstname' => 'IF',
+                'lastname' => 'Ibu Sumiarti',
+                'email' => 'busum@gmail.com',
+                'picture' => 'profil02.png',
+                'idnumber' => '2',
             ],
             [
                 'username' => 'faiz',

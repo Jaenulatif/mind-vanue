@@ -16,8 +16,14 @@ class LoginController extends Controller
      */
     public function index()
     {
+
         if (Auth::user()) {
-            return redirect()->intended('user');
+            $user = Auth::user();
+            if ($user->idnumber == '1') {
+                return redirect('admin');
+            } else if ($user->idnumber == '2' || $user->idnumber == '3') {
+                return redirect('user');
+            }
         }
         return view('index');
     }
@@ -31,16 +37,14 @@ class LoginController extends Controller
             ],
         );
 
-        // $credential = $request->only('username', 'password');
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
             $user = Auth::user();
             if ($user->idnumber == '1') {
-                return redirect()->intended('admin');
+                return redirect('admin');
             } else if ($user->idnumber == '2' || $user->idnumber == '3') {
-                return redirect()->intended('user');
+                return redirect('user');
             }
-            // return redirect()->intended('user');
         }
         return back()->with(['loginError' => 'Username atau password anda salah'])->onlyInput('username');
     }

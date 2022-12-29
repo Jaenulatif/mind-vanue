@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ThreadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,17 +31,19 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('admin', 'index');
         });
     });
-    Route::group(['middleware' => ['isLogin:3']], function () {
+    Route::group(['middleware' => ['isLogin:2']], function () {
         Route::controller(UserController::class)->group(function () {
-            Route::get('/user', 'index');
-            Route::get('/user/profile', 'profile');
-            Route::get('/user/create-thread', 'index');
-            Route::get('/user/thread', 'index');
+            Route::get('user', 'index');
         });
     });
     Route::group(['middleware' => ['isLogin:3']], function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('user', 'index');
+            Route::get('user/profile', 'profile');
+        });
+        Route::controller(ThreadController::class)->group(function () {
+            Route::get('user/thread', 'index');
+            Route::get('user/create-thread', 'create');
         });
     });
 });
