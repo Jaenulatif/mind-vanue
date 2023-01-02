@@ -73,7 +73,7 @@
                                     <span class="inline-icon material-icons">mail</span> orenbarbar@gmail.com
                                     <tr>
                                         <td style="padding-left: 4%;">
-                                            <!--- Prodi --->
+                                            {{-- <!--- Prodi ---> --}}
                                             <span class="inline-icon material-icons">hub</span> Program Studi Informatika
                                         </td>  
                                     </tr>
@@ -83,9 +83,9 @@
                     </div>
                     <p><hr class="dropdown-divider" style="background-color: #AAAAAA"></p>
                     <!--- Profile Page --->
-                    <a class="dropdown-item" href="user/profile"><span class="inline-icon material-icons">account_circle</span>Profile</a>
+                    <a class="dropdown-item" href="{{url()->current().'/profile'}}"><span class="inline-icon material-icons">account_circle</span>Profile</a>
                     <!--- Logout --->
-                    <a class="dropdown-item" href='/logout'><span class="inline-icon material-icons">exit_to_app</span>Logout</a>
+                    <a class="dropdown-item" href="{{url('/logout')}}"><span class="inline-icon material-icons">exit_to_app</span>Logout</a>
                   </div>
                 </div>
             </div>

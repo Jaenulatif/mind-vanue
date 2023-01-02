@@ -21,7 +21,9 @@ class LoginController extends Controller
             $user = Auth::user();
             if ($user->idnumber == '1') {
                 return redirect('admin');
-            } else if ($user->idnumber == '2' || $user->idnumber == '3') {
+            } elseif ($user->idnumber == '2') {
+                return redirect()->intended('moderator');
+            } else {
                 return redirect('user');
             }
         }

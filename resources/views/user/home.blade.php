@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <style type="text/css">
+    <style type="text/css"> 
         .thread-card{
         background-color: white;
         width: auto;
@@ -53,17 +53,17 @@
     <div class="container" style="margin-top: 50px;">
     	<div class="row justify-content-md-center">
     		<div class="col col-lg-2" style="margin-right: 150px">
-    			<a type="button" href="" class="btn btn-lg border border-secondary" style="background-color: #E1701A; color: white; border-radius: 24px;">Thread Baru</a>
+    			<a type="button" href="{{url('/')}}" class="btn btn-lg border border-secondary" style="background-color: #E1701A; color: white; border-radius: 24px;">Thread Baru</a>
     		</div>
     		<div class="col col-lg-2">
-    			<a type="button" href="/user/create-thread" class="btn btn-lg border border-secondary" style="background-color: #F6DCBF; border-radius: 24px;">Buat Thread</a>
+    			<a type="button" href="{{url()->current().'/create-thread'}}" class="btn btn-lg border border-secondary" style="background-color: #F6DCBF; border-radius: 24px;">Buat Thread</a>
     		</div>
     	</div>
     </div>
 
     <div style="margin-bottom: 5%; margin-top: 50px;">
     	<!--- Thread 1 --->
-        <div class="container thread-card" onclick="location.href='/user/thread'">
+        <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
             <div class="thread-profile">
                  <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEBrDl6QYokg4x1ZjEVNwWO_0StN1Ym2dxQ&usqp=CAU" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> Kucing Elit</strong> - Teknik Informatika</span>
@@ -84,7 +84,7 @@
         <!--- Thread 1 --->
 
         <!--- Thread 2 --->
-        <div class="container thread-card" onclick="location.href='/user/thread'">
+        <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
             <div class="thread-profile">
                  <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="https://i.ytimg.com/vi/_55Uq1N065M/maxresdefault.jpg" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> Geng Top Up Diamond</strong> - Teknik Informatika</span>
