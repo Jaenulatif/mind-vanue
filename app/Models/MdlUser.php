@@ -8,11 +8,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 // use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class MdlUser extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    // protected $table = 'mdl_user';
+    protected $table = 'mdl_user';
 
     protected $fillable = [
         'username',
