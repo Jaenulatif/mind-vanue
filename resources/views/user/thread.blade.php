@@ -481,5 +481,33 @@
           document.getElementById("subreply3").style.display = "none";
         }
     </script>
+    {{-- <script src="{{url=('js/app.js')}}"></script>
+    <script>
+        $(function(){
+            const Http = window.axios;
+            const Echo = window.Echo;
+            const name = $("#nama");
+            const bodyText = $("#body-text");
+        })
+        
+        $("input, text").keyup(function(){
+            $(this).removeClass('is-invalid');
+        });
+        
+        $("input","submit").click(function(){
+            if(name.val()==""){
+                name.addClass('is-invalid');
+            }else if(bodyText.val() == ''){
+                bodyText.addClass('is-invalid');
+            }else{
+                Http.post("{{ url('sendComment') }}",{
+                    'name':name.val(),
+                    'bodyText':bodyText.val(),
+                }).then(()=>{
+                    bodyText.val(),
+                });
+            };
+        });
+    </script> --}}
 </body>
 </html>

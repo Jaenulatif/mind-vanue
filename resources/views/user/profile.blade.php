@@ -21,6 +21,7 @@
 </head>
 <body style="background-color: #AAAAAA;">
 	@include('partials.navbar')
+	{{-- {{dd($user)}} --}}
 	<div class="container-fluid" style="margin-top: 7%;">
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">
@@ -30,24 +31,20 @@
 			</div>
 			<div class="col-5" style="margin-left: 5%;">
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="Oren">
-				  <label for="email">Nama</label>
+				  <input type="text" class="form-control" id="nama" readonly="readonly" name="nama" value="{{$user->firstname.' '.$user->lastname}}">
+				  <label for="name">Nama</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="nrp" readonly="readonly" name="nrp" value="1151800000">
-				  <label for="nrp">NRP</label>
+				  <input type="text" class="form-control" id="email" readonly="readonly" name="email" value="{{$user->email}}">
+				  <label for="email">Email</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="prodi" readonly="readonly" name="prodi" value="Informatika">
+				  <input type="text" class="form-control" id="prodi" readonly="readonly" name="prodi" value="{{$user->institution}}">
 				  <label for="prodi">Program Studi</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="status" readonly="readonly" name="status" value="Mahasiswa">
+				  <input type="text" class="form-control" id="status" readonly="readonly" name="status" value="{{$user->departement}}">
 				  <label for="mahasiswa">Status</label>
-				</div>
-				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="role" readonly="readonly" name="role" value="Participant">
-				  <label for="role">Role</label>
 				</div>
 			</div>
 		</div>
