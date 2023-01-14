@@ -5,10 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+<<<<<<< HEAD
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+=======
+>>>>>>> 4f559c2126530a3386fc8f763b5067d29a06b58d
 	<style>
-        table,
-        th,
-        td {
+        .table-admin,
+        .td-admin{
             border: 1px solid;
             border-color: gray;
             border-collapse: collapse;
@@ -40,18 +45,19 @@
 			</div>
     </div>
     <div class="col">
-    	<table bgcolor="#F5F5F5">
+    	<table class="table-admin" bgcolor="#F5F5F5">
       		<tr>
-      			<td width="400px" height="50px"><center>Nama</center></td>
-      			<td width="400px" height="50px"><center>Prodi</center></td>
+      			<td class="td-admin" width="400px" height="50px"><center>Nama</center></td>
+      			<td class="td-admin" width="400px" height="50px"><center>Prodi</center></td>
       		</tr>
       		<tr>
-      			<td height="400px"></td>
-      			<td height="400px"></td>
+      			<td class="td-admin" height="400px"></td>
+      			<td class="td-admin" height="400px"></td>
       		</tr>
       	</table>
     </div>
   </div>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </html>
