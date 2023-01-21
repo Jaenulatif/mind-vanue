@@ -66,7 +66,7 @@
     	<!--- Thread 1 --->
         <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
             <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEBrDl6QYokg4x1ZjEVNwWO_0StN1Ym2dxQ&usqp=CAU" width="60" height="60" >
+                 <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
             </div>
 

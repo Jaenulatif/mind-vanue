@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $thread = DB::table('threads')
         ->join('users', 'user_id', '=', 'users.id')
-        ->select('title','body','users.lastname')
+        ->select('title','body','users.lastname','users.picture')
         ->get();
 
         return view('user.home')->with('thread', $thread);
