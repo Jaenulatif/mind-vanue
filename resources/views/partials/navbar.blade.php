@@ -48,19 +48,21 @@
 
             <!--- Input Search --->
             <div class="mx-auto" style="padding-right: 16.5%; width: 50%;">
-                <form class="form-group">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control form-search" value="" placeholder="Kamu Nyari ?" aria-label="search" aria-describedby="basic-addon1">
-                      <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
-                    </div>
-                </form>
+                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator')
+                    <form class="form-group">
+                        <div class="input-group mb-3">
+                        <input type="text" class="form-control form-search" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
+                        </div>
+                    </form>
+                @endif
             </div>
 
             <!--- Profile Dropdown --->
             <div id="logout">
                 <div class="dropdown">
                   <!--- Profile Icon --->
-                  <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="https://i0.wp.com/republiccode.com/wp-content/uploads/2022/08/1660224919_maxresdefault.jpg" width="40" height="40">
+                  <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="/img/{{$user->picture}}" width="40" height="40">
                   <!--- Profile Dropdown Content --->
                   <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="padding-right: 5%">
                     <div class="dropdown-item">
@@ -68,7 +70,7 @@
                             <tr>
                                 <td rowspan="2">
                                 <!--- Profile Icon --->
-                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="https://i0.wp.com/republiccode.com/wp-content/uploads/2022/08/1660224919_maxresdefault.jpg" width="40" height="40" >  
+                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="40" height="40" >  
                                 </td>
                                 <td style="padding-left: 4%;">
                                     <!--- Email --->
