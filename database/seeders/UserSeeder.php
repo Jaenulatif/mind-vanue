@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'firstname' => 'Admin',
                 'lastname' => '',
                 'email' => 'admin@gmail.com',
-                'picture' => 'profil01.png',
+                'picture' => 'default.png',
                 'idnumber' => '1',
             ],
             [
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
                 'firstname' => 'IF',
                 'lastname' => 'Pak Ramli',
                 'email' => 'pakramli@gmail.com',
-                'picture' => 'profil02.png',
+                'picture' => 'default.png',
                 'idnumber' => '2',
             ],
             [
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
                 'firstname' => 'IF',
                 'lastname' => 'Ibu Sumiarti',
                 'email' => 'busum@gmail.com',
-                'picture' => 'profil02.png',
+                'picture' => 'default.png',
                 'idnumber' => '2',
             ],
             [
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
                 'firstname' => '2018',
                 'lastname' => 'Muhammad Faiz Aulia',
                 'email' => 'muhammadfaizauli88@gmail.com',
-                'picture' => 'profil03.png',
+                'picture' => 'faiz.png',
                 'idnumber' => '3',
             ],
             [
@@ -58,7 +58,7 @@ class UserSeeder extends Seeder
                 'firstname' => '2018',
                 'lastname' => 'Gian Kahria',
                 'email' => 'giankahria22@gmail.com',
-                'picture' => 'profil04.png',
+                'picture' => 'gian.png',
                 'idnumber' => '3',
             ],
             [
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
                 'firstname' => '2018',
                 'lastname' => 'Danang Setiawan',
                 'email' => 'danset31@gmail.com',
-                'picture' => 'profil05.png',
+                'picture' => 'danang.png',
                 'idnumber' => '3',
             ],
             [
@@ -76,7 +76,7 @@ class UserSeeder extends Seeder
                 'firstname' => '2018',
                 'lastname' => 'Jaenulatif Pudin',
                 'email' => 'jaenulatif.pudin@gmail.com',
-                'picture' => 'profil06.png',
+                'picture' => 'latif.png',
                 'idnumber' => '3',
             ],
         ];
