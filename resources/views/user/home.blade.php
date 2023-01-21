@@ -62,47 +62,28 @@
     </div>
 
     <div style="margin-bottom: 5%; margin-top: 50px;">
+        @forelse ($thread as $thr)
     	<!--- Thread 1 --->
         <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
             <div class="thread-profile">
                  <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEBrDl6QYokg4x1ZjEVNwWO_0StN1Ym2dxQ&usqp=CAU" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> Kucing Elit</strong> - Teknik Informatika</span>
+                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
             </div>
 
             <div class="thread-content">
-                <p style="font-size: 18px"><strong>Kenapa whiskas mahal?</strong></p>
+                <p style="font-size: 18px"><strong>{{ $thr->title }}</strong></p>
                 <div class="thread-question">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>{{ $thr->body }}</p>
                 </div>
             </div>
         </div>
+         @empty
+            <div class="alert alert-danger">
+                Data Post belum Tersedia.
+            </div>
         <!--- Thread 1 --->
+         @endforelse
 
-        <!--- Thread 2 --->
-        <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
-            <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="https://i.ytimg.com/vi/_55Uq1N065M/maxresdefault.jpg" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> Geng Top Up Diamond</strong> - Teknik Informatika</span>
-            </div>
-
-            <div class="thread-content">
-                <p style="font-size: 18px"><strong>Top Up Diamond ?</strong></p>
-                <div class="thread-question">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-        <!--- Thread 2 --->
     </div>
 </body>
 </html>

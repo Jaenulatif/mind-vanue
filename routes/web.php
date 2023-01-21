@@ -49,6 +49,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(ThreadController::class)->group(function () {
             Route::get('user/thread', 'index');
             Route::get('user/create-thread', 'create');
+            Route::post('user/insert-thread', 'insert')->name("insert-thread");
         });
     });
 });

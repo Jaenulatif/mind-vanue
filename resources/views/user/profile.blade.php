@@ -21,7 +21,6 @@
 </head>
 <body style="background-color: #AAAAAA;">
 	@include('partials.navbar')
-	{{-- {{dd($user)}} --}}
 	<div class="container-fluid" style="margin-top: 7%;">
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">

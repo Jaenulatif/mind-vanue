@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Thread;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,7 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+        $thread = DB::table('threads')
+        ->join('users', 'user_id', '=', 'users.id')
+        ->select('title','body','users.lastname')
+        ->get();
+
+        return view('user.home')->with('thread', $thread);
     }
 
     /**
