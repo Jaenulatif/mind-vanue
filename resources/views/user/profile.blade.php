@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">
 				<div class="avatar">
-					<img src="https://i0.wp.com/republiccode.com/wp-content/uploads/2022/08/1660224919_maxresdefault.jpg" class="rounded-circle img-profile" alt="Avatar" />
+					<img src="/img/{{$user->picture}}" class="rounded-circle img-profile" alt="Avatar" />
 				</div>
 			</div>
 			<div class="col-5" style="margin-left: 5%;">
