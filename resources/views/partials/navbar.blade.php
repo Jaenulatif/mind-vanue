@@ -1,4 +1,7 @@
 <!--- CSS --->
+@php
+	$user = Auth::user();
+@endphp
 <style type="text/css">
     hr { 
         height: 1px; 
@@ -34,7 +37,6 @@
     } 
 
 </style>
-
 <nav class="navbar navbar-expand-lg py-3" style="background-color: #F7A440;">
     <div class="container-fluid" >
         <div class="container d-flex flex-row">
@@ -70,11 +72,11 @@
                                 </td>
                                 <td style="padding-left: 4%;">
                                     <!--- Email --->
-                                    <span class="inline-icon material-icons">mail</span> orenbarbar@gmail.com
+                                    <span class="inline-icon material-icons">mail</span> {{$user->email}}
                                     <tr>
                                         <td style="padding-left: 4%;">
                                             {{-- <!--- Prodi ---> --}}
-                                            <span class="inline-icon material-icons">hub</span> Program Studi Informatika
+                                            <span class="inline-icon material-icons">hub</span> Program Studi {{$user->institution}}
                                         </td>  
                                     </tr>
                                 </td>
@@ -83,7 +85,9 @@
                     </div>
                     <p><hr class="dropdown-divider" style="background-color: #AAAAAA"></p>
                     <!--- Profile Page --->
-                    <a class="dropdown-item" href="{{url()->current().'/profile'}}"><span class="inline-icon material-icons">account_circle</span>Profile</a>
+                    @if ($user->idnumber == 2 or $user->idnumber == 3)
+                        <a class="dropdown-item" href="@if($user->idnumber == 2) /moderator/profile @elseif($user->idnumber == 3) /user/profile @endif"><span class="inline-icon material-icons">account_circle</span>Profile</a>
+                    @endif
                     <!--- Logout --->
                     <a class="dropdown-item" href="{{url('/logout')}}"><span class="inline-icon material-icons">exit_to_app</span>Logout</a>
                   </div>
