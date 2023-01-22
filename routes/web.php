@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('user', 'index');
             Route::get('user/profile', 'profile');
+            Route::post('user/search-thread', 'search')->name("search-thread");
         });
         Route::controller(ThreadController::class)->group(function () {
             Route::get('user/thread', 'index');

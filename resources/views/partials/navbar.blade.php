@@ -48,10 +48,11 @@
 
             <!--- Input Search --->
             <div class="mx-auto" style="padding-right: 16.5%; width: 50%;">
-                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator')
-                    <form class="form-group">
+                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator' or url()->current() == 'http://127.0.0.1:8000/user/search-thread')
+                    <form class="form-group" action="{{route('search-thread')}}" method="post">
+                        @csrf
                         <div class="input-group mb-3">
-                        <input type="text" class="form-control form-search" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control form-search" name="cari" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
                         <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
                         </div>
                     </form>

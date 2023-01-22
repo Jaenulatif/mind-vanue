@@ -24,6 +24,18 @@ class UserController extends Controller
         return view('user.home')->with('thread', $thread);
     }
 
+    function search(Request $request)
+    {
+        $cari = $request->cari;
+        $thread = DB::table('threads')
+        ->where('title','like',"%".$cari."%")
+        ->join('users', 'user_id', '=', 'users.id')
+        ->select('title','body','users.lastname','users.picture')
+        ->get();
+
+        return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
