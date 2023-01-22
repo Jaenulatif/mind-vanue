@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Thread;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -16,10 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $thread = DB::table('threads')
-        ->orderBy('threads.created_at','desc')
+        $thread = thread::orderBy('threads.created_at','desc')
         ->join('users', 'user_id', '=', 'users.id')
-        ->select('title','body','users.lastname','users.picture','users.institution')
+        ->select('threads.id','title','body','users.lastname','users.picture','users.institution')
         ->get();
 
         return view('user.home')->with('thread', $thread);
@@ -27,15 +25,27 @@ class UserController extends Controller
 
     function search(Request $request)
     {
+        $id = $request->id;
         $cari = $request->cari;
-        $thread = DB::table('threads')
-        ->orderBy('threads.created_at','desc')
+        $thread = thread::orderBy('threads.created_at','desc')
         ->where('title','like',"%".$cari."%")
         ->join('users', 'user_id', '=', 'users.id')
-        ->select('title','body','users.lastname','users.picture')
+        ->select('threads.id','title','body','users.lastname','users.picture','users.institution')
         ->get();
 
-        return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
+        if ($id == 2) {
+            return view('moderator.search_thread')->with('thread', $thread)->with('cari', $cari);
+        }
+        else if ($id == 3) {
+            return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
+        }
+
+    }
+
+    function delete($id){
+        thread::where('id', $id)
+        ->delete();
+        return redirect('moderator');
     }
 
     /**

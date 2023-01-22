@@ -35,10 +35,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('moderator', 'index');
             Route::get('moderator/profile', 'profile');
+            Route::post('moderator/search-thread', 'search')->name("search-thread");
+            Route::get('moderator/delete-thread/{id}', 'delete')->name("delete-thread");
         });
         Route::controller(ThreadController::class)->group(function () {
             Route::get('moderator/thread', 'index');
             Route::get('moderator/create-thread', 'create');
+            Route::post('moderator/insert-thread', 'insert')->name("insert-thread");
         });
     });
     Route::group(['middleware' => ['isLogin:3']], function () {

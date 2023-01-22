@@ -57,6 +57,7 @@
                         @csrf
                         <div class="input-group mb-3">
                         <input type="text" class="form-control form-search" name="cari" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <input type="hidden" name="id" value="{{$user->idnumber}}">
                         <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
                         </div>
                     </form>
