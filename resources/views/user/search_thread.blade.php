@@ -60,7 +60,7 @@
         <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
             <div class="thread-profile">
                  <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
+                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - {{ $thr->institution }}</span>
             </div>
 
             <div class="thread-content">

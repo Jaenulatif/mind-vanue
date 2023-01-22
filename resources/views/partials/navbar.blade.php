@@ -36,6 +36,10 @@
             color: #615E5E;
     } 
 
+    .cursor{
+        cursor: pointer;
+    }
+
 </style>
 <nav class="navbar navbar-expand-lg py-3" style="background-color: #F7A440;">
     <div class="container-fluid" >
@@ -60,7 +64,7 @@
             </div>
 
             <!--- Profile Dropdown --->
-            <div id="logout">
+            <div id="logout" class="cursor">
                 <div class="dropdown">
                   <!--- Profile Icon --->
                   <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="/img/{{$user->picture}}" width="40" height="40">
