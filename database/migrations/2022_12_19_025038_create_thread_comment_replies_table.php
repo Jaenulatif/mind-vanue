@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('thread_comment_replays', function (Blueprint $table) {
+        Schema::create('thread_comment_replies', function (Blueprint $table) {
             $table->id();
             $table->text('body');
             $table->foreignId('user_id')
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('thread_comment_replays');
+        Schema::dropIfExists('thread_comment_replies');
     }
 };

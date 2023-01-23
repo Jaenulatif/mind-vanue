@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Thread;
 
 class UserController extends Controller
 {
@@ -14,7 +15,36 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+        $thread = thread::orderBy('threads.created_at', 'desc')
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture', 'users.institution')
+            ->get();
+
+        return view('user.home')->with('thread', $thread);
+    }
+
+    function search(Request $request)
+    {
+        $id = $request->id;
+        $cari = $request->cari;
+        $thread = thread::orderBy('threads.created_at', 'desc')
+            ->where('title', 'like', "%" . $cari . "%")
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture', 'users.institution')
+            ->get();
+
+        if ($id == 2) {
+            return view('moderator.search_thread')->with('thread', $thread)->with('cari', $cari);
+        } else if ($id == 3) {
+            return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
+        }
+    }
+
+    function delete($id)
+    {
+        thread::where('id', $id)
+            ->delete();
+        return redirect('moderator');
     }
 
     /**

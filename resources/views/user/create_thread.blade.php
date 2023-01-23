@@ -20,7 +20,9 @@
 </head>
 <body style="background-color: #AAAAAA;">
     @include('partials.navbar')
-
+    @php
+	    $user = Auth::user();
+    @endphp
     <div class="container" style="margin-top: 50px;">
     	<div class="row justify-content-md-center">
     		<div class="col col-lg-2" style="margin-right: 150px">
@@ -33,14 +35,15 @@
     </div>
 
     <div style="margin-bottom: 5%; margin-top: 50px;">
-        <form class="form-group">
+        <form class="form-group" action="@if($user->idnumber == 2){{route('insert-threadModerator')}}@elseif($user->idnumber == 3){{route('insert-threadUser')}}@endif" method="post">
+        @csrf
         	<div class="form-floating mb-3 mt-3 thread-create">
-                <input type="text" class="form-control" id="judul" name="judul" value="">
-                <label for="email">Judul Thread</label>
+                <input type="text" class="form-control" id="title" name="title" value="" required>
+                <label for="title">Judul Thread</label>
             </div>
             <div class="form-floating mb-3 mt-3 thread-create">
-                <textarea class="form-control" id="judul" name="judul" style="resize: none; height: 200px;"></textarea>
-                <label for="email">Deskripsi Thread</label>
+                <textarea class="form-control" id="body" name="body" style="resize: none; height: 200px;" required></textarea>
+                <label for="body">Deskripsi Thread</label>
             </div>
             <div class="container thread-create" style="margin-top: 50px;">
                 <div class="row justify-content-between">
@@ -48,7 +51,7 @@
                         <input type="reset" href="" class="btn btn-danger border border-secondary" style="; width: 100px; border-radius: 24px;" value="Batal">
                     </div>
                     <div class="col col-lg-2">
-                        <a type="button" href="" style="background-color: #E1701A; color: white; border-radius: 24px;" class="btn border border-secondary" >Buat Thread</a>
+                        <input type="submit" href="" style="background-color: #E1701A; color: white; border-radius: 24px;" class="btn border border-secondary" value="Buat Thread" >
                     </div>
                 </div>
             </div>

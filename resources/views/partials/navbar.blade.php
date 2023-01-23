@@ -36,6 +36,10 @@
             color: #615E5E;
     } 
 
+    .cursor{
+        cursor: pointer;
+    }
+
 </style>
 <nav class="navbar navbar-expand-lg py-3" style="background-color: #F7A440;">
     <div class="container-fluid" >
@@ -48,10 +52,12 @@
 
             <!--- Input Search --->
             <div class="mx-auto" style="padding-right: 16.5%; width: 50%;">
-                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator')
-                    <form class="form-group">
+                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator' or url()->current() == 'http://127.0.0.1:8000/user/search-thread')
+                    <form class="form-group" action="{{route('search-thread')}}" method="post">
+                        @csrf
                         <div class="input-group mb-3">
-                        <input type="text" class="form-control form-search" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control form-search" name="cari" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <input type="hidden" name="id" value="{{$user->idnumber}}">
                         <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
                         </div>
                     </form>
@@ -59,7 +65,7 @@
             </div>
 
             <!--- Profile Dropdown --->
-            <div id="logout">
+            <div id="logout" class="cursor">
                 <div class="dropdown">
                   <!--- Profile Icon --->
                   <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="/img/{{$user->picture}}" width="40" height="40">

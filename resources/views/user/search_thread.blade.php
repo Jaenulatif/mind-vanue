@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Search</title>
     <style type="text/css"> 
         .thread-card{
         background-color: white;
         width: auto;
         height: auto;
-        margin-right: 5%;
-        margin-left: 5%;
+        margin-right: 10%;
+        margin-left: 10%;
         margin-top: 25px;
         margin-bottom: 25px;
         padding-bottom: 1%;
@@ -44,36 +44,25 @@
             cursor: pointer;
         }
 
-        .hps{
-            padding-right: 90px;
-        }
-
     </style>
 
 </head>
 @include('partials.main')
 <body>
     @include('partials.navbar')
-    @php
+     @php
         $user = Auth::user();
     @endphp
-    <div class="container" style="margin-top: 50px;">
-    	<div class="row justify-content-md-center">
-    		<div class="col col-lg-2" style="margin-right: 150px">
-    			<a type="button" href="{{url('/')}}" class="btn btn-lg border border-secondary" style="background-color: #E1701A; color: white; border-radius: 24px;">Thread Baru</a>
-    		</div>
-    		<div class="col col-lg-2">
-    			<a type="button" href="{{url()->current().'/create-thread'}}" class="btn btn-lg border border-secondary" style="background-color: #F6DCBF; border-radius: 24px;">Buat Thread</a>
-    		</div>
-    	</div>
-    </div>
 
     <div style="margin-bottom: 5%; margin-top: 50px;">
+        <div class="alert alert-primary">
+                Hasil pencarian dari "<strong>{{ $cari }}</strong>"
+            </div>
         @forelse ($thread as $thr)
     	<!--- Thread 1 --->
-        <div class="row" style="margin-right: 5%; margin-left: 5%;">
+       <div class="row" style="margin-right: 5%; margin-left: 5%;">
             <div class="col-11" style="padding-left: 10%;">
-                <div class="container thread-card" onclick="location.href='{{url()->current()}}/{{$thr->id}}/thread'">
+                <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
                     <div class="thread-profile">
                         <div>
                             <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
@@ -118,16 +107,13 @@
             </div>
           </div>
         </div>
-      
-    
          @empty
             <div class="alert alert-danger">
-                Data Thread belum Tersedia.
+                Thread tidak ditemukan.
             </div>
         <!--- Thread 1 --->
          @endforelse
 
     </div>
-    
 </body>
 </html>
