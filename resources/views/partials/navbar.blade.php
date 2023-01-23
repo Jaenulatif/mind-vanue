@@ -52,8 +52,8 @@
 
             <!--- Input Search --->
             <div class="mx-auto" style="padding-right: 16.5%; width: 50%;">
-                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator' or url()->current() == 'http://127.0.0.1:8000/user/search-thread')
-                    <form class="form-group" action="{{route('search-thread')}}" method="post">
+                @if(url()->current() == 'http://127.0.0.1:8000/user' or url()->current() == 'http://127.0.0.1:8000/moderator' or url()->current() == 'http://127.0.0.1:8000/user/search-thread' or 'http://127.0.0.1:8000/moderator/search-thread')
+                    <form class="form-group" action="@if($user->idnumber == 2){{route('search-threadModerator')}}@elseif($user->idnumber == 3){{route('search-threadUser')}}@endif" method="post">
                         @csrf
                         <div class="input-group mb-3">
                         <input type="text" class="form-control form-search" name="cari" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">

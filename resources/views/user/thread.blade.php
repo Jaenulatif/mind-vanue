@@ -179,8 +179,7 @@
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
-                            <textarea name="body" class="form-control comment-input" required>
-                            </textarea>
+                            <textarea name="body" class="form-control comment-input" required></textarea>
                             <input type="hidden" name="userId" value="{{$user->id}}">
                             <input type="hidden" name="threadId" value="{{$threadDetail[0]->id}}">
                         </div>

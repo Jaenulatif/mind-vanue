@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('moderator', 'index');
             Route::get('moderator/profile', 'profile');
-            Route::post('moderator/search-thread', 'search')->name("search-thread");
+            Route::post('moderator/search-thread', 'search')->name("search-threadModerator");
             Route::get('moderator/delete-thread/{id}', 'delete')->name("delete-thread");
         });
         Route::controller(ThreadController::class)->group(function () {
@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('user', 'index');
             Route::get('user/profile', 'profile');
-            Route::post('user/search-thread', 'search')->name("search-thread");
+            Route::post('user/search-thread', 'search')->name("search-threadUser");
         });
         Route::controller(ThreadController::class)->group(function () {
             Route::get('user/{id}/thread', 'index');
