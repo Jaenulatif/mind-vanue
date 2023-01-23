@@ -4,6 +4,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ReplyCommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,29 +50,15 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('user/search-thread', 'search')->name("search-thread");
         });
         Route::controller(ThreadController::class)->group(function () {
-            Route::get('user/thread', 'index');
+            Route::get('user/{id}/thread', 'index');
             Route::get('user/create-thread', 'create');
             Route::post('user/insert-thread', 'insert')->name("insert-thread");
         });
+        Route::controller(CommentController::class)->group(function () {
+            Route::post('user/insert-comment', 'insert')->name("insert-comment");
+        });
+        Route::controller(ReplyCommentController::class)->group(function () {
+            Route::post('user/insert-reply-comment', 'insert')->name("insert-replyComment");
+        });
     });
 });
-
-// Route::get('/admin', function () {
-//     return view('admin.index');
-// });
-
-// Route::get('/user', function () {
-//     return view('user.home');
-// });
-
-// Route::get('/user/buat', function () {
-//     return view('user.create_thread');
-// });
-
-// Route::get('/user/thread', function () {
-//     return view('user.thread');
-// });
-
-// Route::get('/user/profile', function () {
-//     return view('user.profile');
-// });

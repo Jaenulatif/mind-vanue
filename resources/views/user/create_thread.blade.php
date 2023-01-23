@@ -35,12 +35,12 @@
         <form class="form-group" action="{{route('insert-thread')}}" method="post">
         @csrf
         	<div class="form-floating mb-3 mt-3 thread-create">
-                <input type="text" class="form-control" id="title" name="title" value="">
-                <label for="email">Judul Thread</label>
+                <input type="text" class="form-control" id="title" name="title" value="" required>
+                <label for="title">Judul Thread</label>
             </div>
             <div class="form-floating mb-3 mt-3 thread-create">
-                <textarea class="form-control" id="body" name="body" style="resize: none; height: 200px;"></textarea>
-                <label for="email">Deskripsi Thread</label>
+                <textarea class="form-control" id="body" name="body" style="resize: none; height: 200px;" required></textarea>
+                <label for="body">Deskripsi Thread</label>
             </div>
             <div class="container thread-create" style="margin-top: 50px;">
                 <div class="row justify-content-between">

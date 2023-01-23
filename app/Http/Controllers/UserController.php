@@ -17,9 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $thread = DB::table('threads')
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select('title','body','users.lastname','users.picture')
-        ->get();
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture')
+            ->get();
 
         return view('user.home')->with('thread', $thread);
     }
@@ -28,10 +28,10 @@ class UserController extends Controller
     {
         $cari = $request->cari;
         $thread = DB::table('threads')
-        ->where('title','like',"%".$cari."%")
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select('title','body','users.lastname','users.picture')
-        ->get();
+            ->where('title', 'like', "%" . $cari . "%")
+            ->join('users', 'user_id', '=', 'users.id')
+            ->select('title', 'body', 'users.lastname', 'users.picture')
+            ->get();
 
         return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
     }

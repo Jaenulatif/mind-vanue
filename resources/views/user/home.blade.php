@@ -64,7 +64,7 @@
     <div style="margin-bottom: 5%; margin-top: 50px;">
         @forelse ($thread as $thr)
     	<!--- Thread 1 --->
-        <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
+        <div class="container thread-card" onclick="location.href='{{url()->current()}}/{{$thr->id}}/thread'">
             <div class="thread-profile">
                  <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
