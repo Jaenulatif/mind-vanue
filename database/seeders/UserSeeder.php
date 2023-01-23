@@ -33,6 +33,7 @@ class UserSeeder extends Seeder
                 'email' => 'pakramli@gmail.com',
                 'picture' => 'default.png',
                 'idnumber' => '2',
+                'institution' => 'Informatika',
             ],
             [
                 'username' => 'busum',
@@ -42,6 +43,7 @@ class UserSeeder extends Seeder
                 'email' => 'busum@gmail.com',
                 'picture' => 'default.png',
                 'idnumber' => '2',
+                'institution' => 'Informatika',
             ],
             [
                 'username' => 'faiz',
@@ -51,6 +53,7 @@ class UserSeeder extends Seeder
                 'email' => 'muhammadfaizauli88@gmail.com',
                 'picture' => 'faiz.png',
                 'idnumber' => '3',
+                'institution' => 'Informatika',
             ],
             [
                 'username' => 'gian',
@@ -60,6 +63,7 @@ class UserSeeder extends Seeder
                 'email' => 'giankahria22@gmail.com',
                 'picture' => 'gian.png',
                 'idnumber' => '3',
+                'institution' => 'Informatika',
             ],
             [
                 'username' => 'danang',
@@ -69,6 +73,7 @@ class UserSeeder extends Seeder
                 'email' => 'danset31@gmail.com',
                 'picture' => 'danang.png',
                 'idnumber' => '3',
+                'institution' => 'Informatika',
             ],
             [
                 'username' => 'latif',
@@ -78,6 +83,27 @@ class UserSeeder extends Seeder
                 'email' => 'jaenulatif.pudin@gmail.com',
                 'picture' => 'latif.png',
                 'idnumber' => '3',
+                'institution' => 'Informatika',
+            ],
+            [
+                'username' => 'rafi',
+                'password' => bcrypt('Bch_2018'),
+                'firstname' => '2018',
+                'lastname' => 'Rafi Pashya',
+                'email' => 'rafipash@gmail.com',
+                'picture' => 'default.png',
+                'idnumber' => '3',
+                'institution' => 'Teknik Industri',
+            ],
+            [
+                'username' => 'andrew',
+                'password' => bcrypt('Bch_2018'),
+                'firstname' => '2018',
+                'lastname' => 'Andrew Garfield',
+                'email' => 'anddgarf@gmail.com',
+                'picture' => 'default.png',
+                'idnumber' => '3',
+                'institution' => 'Teknik Elektro',
             ],
         ];
 
