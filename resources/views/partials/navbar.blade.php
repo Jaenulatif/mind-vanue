@@ -36,6 +36,10 @@
             color: #615E5E;
     } 
 
+    .cursor{
+        cursor: pointer;
+    }
+
 </style>
 <nav class="navbar navbar-expand-lg py-3" style="background-color: #F7A440;">
     <div class="container-fluid" >
@@ -53,6 +57,7 @@
                         @csrf
                         <div class="input-group mb-3">
                         <input type="text" class="form-control form-search" name="cari" value="" placeholder="Kamu nyari?" aria-label="search" aria-describedby="basic-addon1">
+                        <input type="hidden" name="id" value="{{$user->idnumber}}">
                         <span class="input-group-text inline-icon material-icons" id="basic-addon1" style="background-color: white;">search</span>
                         </div>
                     </form>
@@ -60,7 +65,7 @@
             </div>
 
             <!--- Profile Dropdown --->
-            <div id="logout">
+            <div id="logout" class="cursor">
                 <div class="dropdown">
                   <!--- Profile Icon --->
                   <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="/img/{{$user->picture}}" width="40" height="40">

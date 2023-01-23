@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,25 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $thread = DB::table('threads')
+        ->orderBy('threads.created_at','desc')
+        ->join('users', 'user_id', '=', 'users.id')
+        ->select('title','users.lastname')
+        ->get();
+
+        $user = DB::table('users')
+        ->orderBy('lastname','asc')
+        ->select('lastname', 'institution')
+        ->where('idnumber','3')
+        ->get();
+
+        $moderator = DB::table('users')
+        ->orderBy('lastname','asc')
+        ->select('lastname', 'institution')
+        ->where('idnumber','2')
+        ->get();
+
+        return view('admin.index')->with('thread', $thread)->with('user', $user)->with('moderator', $moderator);
     }
 
     /**

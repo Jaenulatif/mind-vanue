@@ -50,6 +50,9 @@
 @include('partials.main')
 <body>
     @include('partials.navbar')
+     @php
+        $user = Auth::user();
+    @endphp
 
     <div style="margin-bottom: 5%; margin-top: 50px;">
         <div class="alert alert-primary">
@@ -57,18 +60,52 @@
             </div>
         @forelse ($thread as $thr)
     	<!--- Thread 1 --->
-        <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
-            <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
-            </div>
+       <div class="row" style="margin-right: 5%; margin-left: 5%;">
+            <div class="col-11" style="padding-left: 10%;">
+                <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
+                    <div class="thread-profile">
+                        <div>
+                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
+                                <span style="font-size: 24px; padding-left: 20p;"><strong> {{ $thr->lastname }}</strong> - {{ $thr->institution }}</span> 
+                        </div>
+                             
+                    </div>
 
-            <div class="thread-content">
-                <p style="font-size: 18px"><strong>{{ $thr->title }}</strong></p>
-                <div class="thread-question">
-                    <p>{{ $thr->body }}</p>
+                    <div class="thread-content">
+                        <p style="font-size: 18px"><strong>{{ $thr->title }}</strong></p>
+                        <div class="thread-question">
+                            <p>{{ $thr->body }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-1"  style="padding-right: 70px;">
+                @if ($user->idnumber == 2)
+                     <div class="hps" style="margin-top: 20px">
+                         <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm">
+                            <span class="inline-icon material-icons" style="color: black; font-size: 34px;">delete</span>
+                         </button>
+                     </div>
+                @endif
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Hapus Thread ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a class="btn btn-danger" href="{{route('delete-thread', [$thr->id])}}" class="btn btn-primary">Hapus</a>
+              </div>
+            </div>
+          </div>
         </div>
          @empty
             <div class="alert alert-danger">
