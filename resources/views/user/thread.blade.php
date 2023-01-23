@@ -170,7 +170,7 @@
         <!--- Kotak Komentar--->
         <div class="container-fluid thread-comment">
             <div class="thread-profile-comment" >
-                 <form class="form-group" action="{{route('insert-comment')}}" method="post">
+                 <form class="form-group" action="@if($user->idnumber == 2){{route('insert-commentModerator')}}@elseif($user->idnumber == 3){{route('insert-commentUser')}}@endif" method="post">
                     @csrf
                     <div class="row">
                         <!--- Profile--->
@@ -218,7 +218,7 @@
                     </div>
                     <!--- Balas Komentar 1 --->
                     <div class="panel" id="reply{{$comment->id}}">
-                        <form class="form-group" action="{{route('insert-replyComment')}}" method="post">
+                        <form class="form-group" action="@if($user->idnumber == 2){{route('insert-replyCommentModerator')}}@elseif($user->idnumber == 3){{route('insert-replyCommentUser')}}@endif" method="post">
                             @csrf
                             <div class="row">
                                 <!--- Profile --->

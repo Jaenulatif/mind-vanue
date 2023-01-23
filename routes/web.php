@@ -41,9 +41,15 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('moderator/delete-thread/{id}', 'delete')->name("delete-thread");
         });
         Route::controller(ThreadController::class)->group(function () {
-            Route::get('moderator/thread', 'index');
+            Route::get('moderator/{id}/thread', 'index');
             Route::get('moderator/create-thread', 'create');
-            Route::post('moderator/insert-thread', 'insert')->name("insert-thread");
+            Route::post('moderator/insert-thread', 'insert')->name("insert-threadModerator");
+        });
+        Route::controller(CommentController::class)->group(function () {
+            Route::post('moderator/insert-comment', 'insert')->name("insert-commentModerator");
+        });
+        Route::controller(ReplyCommentController::class)->group(function () {
+            Route::post('moderator/insert-reply-comment', 'insert')->name("insert-replyCommentModerator");
         });
     });
     Route::group(['middleware' => ['isLogin:3']], function () {
@@ -55,13 +61,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::controller(ThreadController::class)->group(function () {
             Route::get('user/{id}/thread', 'index');
             Route::get('user/create-thread', 'create');
-            Route::post('user/insert-thread', 'insert')->name("insert-thread");
+            Route::post('user/insert-thread', 'insert')->name("insert-threadUser");
         });
         Route::controller(CommentController::class)->group(function () {
-            Route::post('user/insert-comment', 'insert')->name("insert-comment");
+            Route::post('user/insert-comment', 'insert')->name("insert-commentUser");
         });
         Route::controller(ReplyCommentController::class)->group(function () {
-            Route::post('user/insert-reply-comment', 'insert')->name("insert-replyComment");
+            Route::post('user/insert-reply-comment', 'insert')->name("insert-replyCommentUser");
         });
     });
 });

@@ -15,17 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $thread = DB::table('threads')
+        $thread = thread::orderBy('threads.created_at', 'desc')
             ->join('users', 'user_id', '=', 'users.id')
-            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture')
+            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture', 'users.institution')
             ->get();
-=======
-        $thread = thread::orderBy('threads.created_at','desc')
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select('threads.id','title','body','users.lastname','users.picture','users.institution')
-        ->get();
->>>>>>> 4f8da7c52ca3da3c7b6401ef3bd0bc954e3ee734
 
         return view('user.home')->with('thread', $thread);
     }
@@ -34,32 +27,23 @@ class UserController extends Controller
     {
         $id = $request->id;
         $cari = $request->cari;
-<<<<<<< HEAD
-        $thread = DB::table('threads')
+        $thread = thread::orderBy('threads.created_at', 'desc')
             ->where('title', 'like', "%" . $cari . "%")
             ->join('users', 'user_id', '=', 'users.id')
-            ->select('title', 'body', 'users.lastname', 'users.picture')
+            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture', 'users.institution')
             ->get();
-=======
-        $thread = thread::orderBy('threads.created_at','desc')
-        ->where('title','like',"%".$cari."%")
-        ->join('users', 'user_id', '=', 'users.id')
-        ->select('threads.id','title','body','users.lastname','users.picture','users.institution')
-        ->get();
->>>>>>> 4f8da7c52ca3da3c7b6401ef3bd0bc954e3ee734
 
         if ($id == 2) {
             return view('moderator.search_thread')->with('thread', $thread)->with('cari', $cari);
-        }
-        else if ($id == 3) {
+        } else if ($id == 3) {
             return view('user.search_thread')->with('thread', $thread)->with('cari', $cari);
         }
-
     }
 
-    function delete($id){
+    function delete($id)
+    {
         thread::where('id', $id)
-        ->delete();
+            ->delete();
         return redirect('moderator');
     }
 

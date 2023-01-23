@@ -71,16 +71,9 @@
     <div style="margin-bottom: 5%; margin-top: 50px;">
         @forelse ($thread as $thr)
     	<!--- Thread 1 --->
-<<<<<<< HEAD
-        <div class="container thread-card" onclick="location.href='{{url()->current()}}/{{$thr->id}}/thread'">
-            <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $thr->lastname }}</strong> - Teknik Informatika</span>
-            </div>
-=======
         <div class="row" style="margin-right: 5%; margin-left: 5%;">
             <div class="col-11" style="padding-left: 10%;">
-                <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
+                <div class="container thread-card" onclick="location.href='{{url()->current()}}/{{$thr->id}}/thread'">
                     <div class="thread-profile">
                         <div>
                             <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
@@ -88,7 +81,6 @@
                         </div>
                              
                     </div>
->>>>>>> 4f8da7c52ca3da3c7b6401ef3bd0bc954e3ee734
 
                     <div class="thread-content">
                         <p style="font-size: 18px"><strong>{{ $thr->title }}</strong></p>
