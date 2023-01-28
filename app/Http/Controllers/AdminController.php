@@ -23,7 +23,8 @@ class AdminController extends Controller
         $user = DB::table('mdl_user')
             ->orderBy('lastname', 'asc')
             ->select('lastname', 'institution')
-            ->where('idnumber', '3')
+            ->where('idnumber', '2')
+            ->orWhere('idnumber', '3')
             ->get();
 
         $moderator = DB::table('mdl_user')
