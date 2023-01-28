@@ -68,7 +68,7 @@
     	<!--- Thread 1 --->
        <div class="row" style="margin-right: 5%; margin-left: 5%;">
             <div class="col-11" style="padding-left: 10%;">
-                <div class="container thread-card" onclick="location.href='{{url()->current()}}/thread'">
+                <div class="container thread-card" onclick="location.href='{{$thr->id}}/thread'">
                     <div class="thread-profile">
                         <div>
                             <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
