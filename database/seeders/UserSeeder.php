@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\MdlUser;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -108,7 +108,7 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($users as $key => $value) {
-            User::create($value);
+            MdlUser::create($value);
         }
         //
     }
