@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('mdl_user', function (Blueprint $table) {
             $table->id();
             $table->string('username', 50)->unique();
             $table->string('password', 255);
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('lastname', 100);
             $table->string('email', 100);
             $table->string('institution', 255)->nullable();
-            $table->string('departement', 255)->nullable();
+            $table->string('department', 255)->nullable();
             $table->string('picture', 255)->nullable();
             $table->string('idnumber', 15);
             $table->timestamps();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('mdl_user');
     }
 };

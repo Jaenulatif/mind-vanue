@@ -154,7 +154,7 @@
         <!--- Thread --->
     	<div class="container thread-card">
             <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$threadDetail[0]->picture}}" width="60" height="60" >
+                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong> - {{$threadDetail[0]->institution}}</span>
             </div>
 
@@ -175,7 +175,7 @@
                     <div class="row">
                         <!--- Profile--->
                         <div class="col-sm-1">
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >  
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >  
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
@@ -196,12 +196,18 @@
         <!--- Komentar --->
         <div class="content">
             <div class="container thread-card">
+               @php
+                    $modal = 0;
+                @endphp
                 @foreach ($threadDetCom as $comment)
+                @php
+                    $modal += 1;
+                @endphp
                 <!--- Komentar 1 --->
                 <div id="comment">
                     <!--- Profile --->
                     <div class="thread-profile">
-                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$comment->picture}}" width="60" height="60" >
+                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                         <span style="font-size: 24px; padding-left: 20px;"><strong>{{$comment->lastname}}</strong> - {{$comment->institution}}</span>
                     </div>
                     <div class="thread-content">
@@ -212,23 +218,46 @@
                     <div class="d-flex justify-content-end" style="margin-top: 10px">
                         <!--- Button Komentar --->
                         <a href="#reply{{$comment->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Balas" onclick="show({{$comment->id}})">
-                            <span class="inline-icon material-icons" style="margin-right: 40px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
+                            <span class="inline-icon material-icons" style="margin-right: 40px; margin-top: 10px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
                         </a>
+                        @if ($user->idnumber == 2)
+                        <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm{{$modal}}">
+                            <span class="inline-icon material-icons" style="color: black; font-size: 30px;margin-right: 20px;">delete</span>
+                         </button>
+                         <div class="modal fade" id="confirm{{$modal}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hapus comment <i>{{$comment->lastname}}</i></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <strong>Hapus comment</strong> dari "{{$comment->lastname}}" yang berisi <i>{{$comment->body}}</i>
+                               </div>  
+                             
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a class="btn btn-danger" href="delete-comment/ {{$comment->id}}/{{$threadDetail[0]->id}}" class="btn btn-primary">Hapus</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                         @endif
                     </div>
                     <!--- Balas Komentar 1 --->
-                    <div class="panel" id="reply{{$comment->id}}">
+                    <div class="panel" id="reply{{$comment->id}}" style="margin-right: 5%; margin-left: 10%;">
                         <form class="form-group" action="@if($user->idnumber == 2){{route('insert-replyCommentModerator')}}@elseif($user->idnumber == 3){{route('insert-replyCommentUser')}}@endif" method="post">
                             @csrf
                             <div class="row">
                                 <!--- Profile --->
-                                <div class="col-sm-1" style="margin-top: 10px;">
+                                <div class="col-sm-1">
                                     <div class="thread-profile">
-                                         <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >
+                                         <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                                     </div>
                                 </div>
                                 <!--- Input Komentar --->
-                                <div class="col">
-                                    <input type="text" name="body" class="form-control reply-input" value="{{'@'}}{{$comment->lastname}}{{' '}}">
+                                <div class="col" style="padding-left: 20px;">
+                                    <textarea name="body" class="form-control reply-input">{{'@'}}{{$comment->lastname}}{{' '}}</textarea> 
                                     <input type="hidden" name="userId" value="{{$user->id}}">
                                     <input type="hidden" name="commentId" value="{{$comment->id}}">
                                 </div>
@@ -245,12 +274,18 @@
                             </div>
                         </form>
                     </div>
+                     @php
+                        $modalin = 0;
+                    @endphp
                     @foreach($threadDetComRep as $commentReply)
+                    @php
+                        $modalin += 1;
+                    @endphp
                         @if($comment->id == $commentReply->thread_comment_id)
                         <!--- Sub Komentar 1 --->
                         <div class="thread-profile" style="padding-left: 55px; padding-right: 30px;">
                             <!--- Profile --->
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$commentReply->picture}}" width="60" height="60" >
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                             <span style="font-size: 24px; padding-left: 20px;"><strong> {{$commentReply->lastname}}</strong> - {{$commentReply->institution}}</span>
                             <!--- Isi Komentar --->
                             <div class="thread-content">
@@ -260,8 +295,31 @@
                                 <!--- Button Balasan --->
                                 <div class="d-flex justify-content-end" style="margin-top: 10px">
                                     <a href="#subreply{{$commentReply->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Balas" onclick="subshow({{$commentReply->id}})">
-                                        <span class="inline-icon material-icons" style="margin-right: 40px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
+                                        <span class="inline-icon material-icons" style="margin-right: 20px;margin-top: 10px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
                                     </a>
+                                    @if ($user->idnumber == 2)
+                                    <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm{{$modalin}}">
+                                        <span class="inline-icon material-icons" style="color: black; font-size: 30px;">delete</span>
+                                     </button>
+                                     <div class="modal fade" id="confirm{{$modalin}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Hapus comment <i>{{$commentReply->lastname}}</i></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <strong>Hapus comment</strong> dari "{{$commentReply->lastname}}" yang berisi <i>{{$commentReply->body}}</i>
+                                           </div>  
+                                         
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a class="btn btn-danger" href="delete-subcomment/ {{$commentReply->id}}/{{$threadDetail[0]->id}}" class="btn btn-primary">Hapus</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                     @endif
                                 </div>
                                 <!--- Balas Sub Komentar --->
                                 <div class="panel" id="subreply{{$commentReply->id}}">
@@ -269,14 +327,14 @@
                                         @csrf
                                         <div class="row">
                                             <!--- Profile --->
-                                            <div class="col-sm-1" style="margin-top: 10px; padding-left: 5px;">
+                                            <div class="col-sm-1"padding-left: 5px;">
                                                 <div class="thread-profile">
-                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >
+                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                                                 </div>
                                             </div>
                                             <!--- Input Balasan --->
                                             <div class="col" style="padding-left: 20px;">
-                                                <input type="text" name="body" class="form-control reply-input" value="{{'@'}}{{$commentReply->lastname}}{{' '}}">
+                                                <textarea name="body" class="form-control reply-input">{{'@'}}{{$commentReply->lastname}}{{' '}}</textarea>
                                                 <input type="hidden" name="userId" value="{{$user->id}}">
                                                 <input type="hidden" name="commentId" value="{{$comment->id}}">
                                             </div>
@@ -286,7 +344,7 @@
                                                     <span class="inline-icon material-icons" style="color: black;">send</span>
                                                 </button>
                                                 <a href="#reply1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel" onclick="subhide({{$commentReply->id}})">
-                                                    <span class="inline-icon material-icons" style="margin-top: 10px; color: black;">cancel</span>
+                                                    <span class="inline-icon material-icons" style="margin-top: 10px;margin-left: 10px; color: black;">cancel</span>
                                                 </a>    
                                             </div>
                                         </div>
@@ -298,7 +356,6 @@
                     <!--- Sub Komentar 1 --->
                     @endforeach
                     {{-- @endif --}}
-
                 </div>
                 @endforeach
 
