@@ -36,6 +36,21 @@ class ThreadController extends Controller
         ]);
     }
 
+    function delete_com($tid,$cid){
+        DB::table('thread_comments')
+            ->where('id', $cid)
+            ->delete();
+        return redirect('moderator/'.$tid.'/thread');
+    }
+
+    function delete_subcom($tid,$cid){
+        DB::table('thread_comment_replies')
+            ->where('id', $cid)
+            ->delete();
+        return redirect('moderator/'.$tid.'/thread');
+    }
+
+
     function create()
     {
         return view('user.create_thread');

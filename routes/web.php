@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('moderator/{id}/thread', 'index');
             Route::get('moderator/create-thread', 'create');
             Route::post('moderator/insert-thread', 'insert')->name("insert-threadModerator");
+            Route::get('moderator/{id}/delete-comment/{cid}/{thid}', 'delete_com')->name("delete-comment");
+            Route::get('moderator/{id}/delete-subcomment/{cid}/{thid}', 'delete_subcom')->name("delete-subcomment");
         });
         Route::controller(CommentController::class)->group(function () {
             Route::post('moderator/insert-comment', 'insert')->name("insert-commentModerator");
