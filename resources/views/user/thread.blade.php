@@ -228,7 +228,7 @@
                                 </div>
                                 <!--- Input Komentar --->
                                 <div class="col">
-                                    <textarea name="body" class="form-control reply-input" placeholder="Balas.."></textarea>
+                                    <input type="text" name="body" class="form-control reply-input" value="{{'@'}}{{$comment->lastname}}{{' '}}">
                                     <input type="hidden" name="userId" value="{{$user->id}}">
                                     <input type="hidden" name="commentId" value="{{$comment->id}}">
                                 </div>
@@ -258,30 +258,33 @@
                                 </div>
                                 <!--- Button Balasan --->
                                 <div class="d-flex justify-content-end" style="margin-top: 10px">
-                                    <a href="#reply1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Balas" onclick="subshow1()">
+                                    <a href="#subreply{{$commentReply->id}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Balas" onclick="subshow({{$commentReply->id}})">
                                         <span class="inline-icon material-icons" style="margin-right: 40px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
                                     </a>
                                 </div>
                                 <!--- Balas Sub Komentar --->
-                                <div class="panel" id="subreply1">
-                                    <form class="form-group">
+                                <div class="panel" id="subreply{{$commentReply->id}}">
+                                    <form class="form-group" action="@if($user->idnumber == 2){{route('insert-replyCommentModerator')}}@elseif($user->idnumber == 3){{route('insert-replyCommentUser')}}@endif" method="post">
+                                        @csrf
                                         <div class="row">
                                             <!--- Profile --->
                                             <div class="col-sm-1" style="margin-top: 10px; padding-left: 5px;">
                                                 <div class="thread-profile">
-                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="https://images.pexels.com/photos/1576193/pexels-photo-1576193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="60" height="60" >
+                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >
                                                 </div>
                                             </div>
                                             <!--- Input Balasan --->
                                             <div class="col" style="padding-left: 20px;">
-                                                <textarea rows="auto" name="subreply" class="form-control reply-input" placeholder="Balas Komentar"></textarea> 
+                                                <input type="text" name="body" class="form-control reply-input" value="{{'@'}}{{$commentReply->lastname}}{{' '}}">
+                                                <input type="hidden" name="userId" value="{{$user->id}}">
+                                                <input type="hidden" name="commentId" value="{{$comment->id}}">
                                             </div>
                                             <!--- Button Komentar Kirim dan batal --->
                                             <div class="col-sm-1" style="margin-top: 10px; padding-right: 65px;">
-                                                <a href="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kirim" onclick="subhide1()">
+                                                <input type="submit" title="Kirim" >
                                                     <span class="inline-icon material-icons" style="color: black;">send</span>
-                                                </a><br>
-                                                <a href="#reply1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel" onclick="subhide1()">
+                                                <br>
+                                                <a href="#reply1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel" onclick="subhide({{$commentReply->id}})">
                                                     <span class="inline-icon material-icons" style="margin-top: 10px; color: black;">cancel</span>
                                                 </a>    
                                             </div>
@@ -307,13 +310,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript">
         function show(id) {
-            console.log(id);
+            // console.log(id);
             document.getElementById("reply"+id).style.display = "block";
         }
 
-        function hide(id) {
+        function subshow(id) {
             console.log(id);
+            document.getElementById("subreply"+id).style.display = "block";
+        }
+
+        function hide(id) {
+            // console.log(id);
             document.getElementById("reply"+id).style.display = "none";
+        }
+
+        function subhide(id) {
+            // console.log(id);
+            document.getElementById("subreply"+id).style.display = "none";
         }
     </script>
 </body>
