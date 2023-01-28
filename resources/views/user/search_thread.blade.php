@@ -71,7 +71,7 @@
                 <div class="container thread-card" onclick="location.href='{{$thr->id}}/thread'">
                     <div class="thread-profile">
                         <div>
-                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/{{ $thr->picture }}" width="60" height="60" >
+                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                                 <span style="font-size: 24px; padding-left: 20p;"><strong> {{ $thr->lastname }}</strong> - {{ $thr->institution }}</span> 
                         </div>
                              
