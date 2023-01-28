@@ -13,20 +13,20 @@ class ThreadController extends Controller
     function index($id)
     {
         $threadDetail = DB::table('threads')
-            ->join('users', 'user_id', '=', 'users.id')
-            ->select('threads.id', 'title', 'body', 'users.lastname', 'users.picture', 'users.institution')
+            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
             ->where('threads.id', '=', $id)
             ->get();
 
         $threadDetCom = DB::table('thread_comments')
-            ->join('users', 'user_id', '=', 'users.id')
-            ->select('thread_comments.id', 'body', 'users.lastname', 'users.picture', 'users.institution')
+            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('thread_comments.id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
             ->where('thread_comments.thread_id', '=', $id)
             ->get();
 
         $threadDetComRep = DB::table('thread_comment_replies')
-            ->join('users', 'user_id', '=', 'users.id')
-            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'users.lastname', 'users.picture', 'users.institution')
+            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
             ->get();
 
         return view('user.thread', [

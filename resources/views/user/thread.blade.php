@@ -154,7 +154,7 @@
         <!--- Thread --->
     	<div class="container thread-card">
             <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$threadDetail[0]->picture}}" width="60" height="60" >
+                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                  <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong> - {{$threadDetail[0]->institution}}</span>
             </div>
 
@@ -175,7 +175,7 @@
                     <div class="row">
                         <!--- Profile--->
                         <div class="col-sm-1">
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >  
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >  
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
@@ -207,7 +207,7 @@
                 <div id="comment">
                     <!--- Profile --->
                     <div class="thread-profile">
-                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$comment->picture}}" width="60" height="60" >
+                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                         <span style="font-size: 24px; padding-left: 20px;"><strong>{{$comment->lastname}}</strong> - {{$comment->institution}}</span>
                     </div>
                     <div class="thread-content">
@@ -252,7 +252,7 @@
                                 <!--- Profile --->
                                 <div class="col-sm-1">
                                     <div class="thread-profile">
-                                         <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >
+                                         <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                                     </div>
                                 </div>
                                 <!--- Input Komentar --->
@@ -285,7 +285,7 @@
                         <!--- Sub Komentar 1 --->
                         <div class="thread-profile" style="padding-left: 55px; padding-right: 30px;">
                             <!--- Profile --->
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$commentReply->picture}}" width="60" height="60" >
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                             <span style="font-size: 24px; padding-left: 20px;"><strong> {{$commentReply->lastname}}</strong> - {{$commentReply->institution}}</span>
                             <!--- Isi Komentar --->
                             <div class="thread-content">
@@ -329,7 +329,7 @@
                                             <!--- Profile --->
                                             <div class="col-sm-1"padding-left: 5px;">
                                                 <div class="thread-profile">
-                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/{{$user->picture}}" width="60" height="60" >
+                                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
                                                 </div>
                                             </div>
                                             <!--- Input Balasan --->

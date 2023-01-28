@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">
 				<div class="avatar">
-					<img src="/img/{{$user->picture}}" class="rounded-circle img-profile" alt="Avatar" />
+					<img src="/img/default2.png" class="rounded-circle img-profile" alt="Avatar" />
 				</div>
 			</div>
 			<div class="col-5" style="margin-left: 5%;">
@@ -42,7 +42,7 @@
 				  <label for="prodi">Program Studi</label>
 				</div>
 				<div class="form-floating mb-3 mt-3">
-				  <input type="text" class="form-control" id="status" readonly="readonly" name="status" value="{{$user->departement}}">
+				  <input type="text" class="form-control" id="status" readonly="readonly" name="status" value="{{$user->department}}">
 				  <label for="mahasiswa">Status</label>
 				</div>
 			</div>

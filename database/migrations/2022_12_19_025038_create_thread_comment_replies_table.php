@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('body');
             $table->foreignId('user_id')
-                ->constrained('users')
+                ->constrained('mdl_user')
                 ->onDelete('cascade');
             $table->foreignId('thread_comment_id')
                 ->constrained('thread_comments')

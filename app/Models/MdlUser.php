@@ -8,11 +8,12 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 // use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class MdlUser extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
     // protected $table = 'mdl_user';
+    use Notifiable;
 
     protected $fillable = [
         'username',
@@ -21,7 +22,7 @@ class User extends Authenticatable
         'lastname',
         'email',
         'institution',
-        'departement',
+        'department',
         'picture',
         'idnumber',
     ];
@@ -34,6 +35,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $table = 'mdl_user';
 
     public function thread()
     {
