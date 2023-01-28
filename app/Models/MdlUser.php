@@ -22,7 +22,7 @@ class MdlUser extends Authenticatable
         'lastname',
         'email',
         'institution',
-        'departement',
+        'department',
         'picture',
         'idnumber',
     ];
