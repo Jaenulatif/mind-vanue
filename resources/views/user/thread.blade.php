@@ -282,9 +282,9 @@
                                             </div>
                                             <!--- Button Komentar Kirim dan batal --->
                                             <div class="col-sm-1" style="margin-top: 10px; padding-right: 65px;">
-                                                <input type="submit" title="Kirim" >
+                                                <button class="btn" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Kirim">
                                                     <span class="inline-icon material-icons" style="color: black;">send</span>
-                                                <br>
+                                                </button>
                                                 <a href="#reply1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel" onclick="subhide({{$commentReply->id}})">
                                                     <span class="inline-icon material-icons" style="margin-top: 10px; color: black;">cancel</span>
                                                 </a>    
