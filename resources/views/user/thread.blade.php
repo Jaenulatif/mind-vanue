@@ -154,8 +154,29 @@
         <!--- Thread --->
     	<div class="container thread-card">
             <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong> - {{$threadDetail[0]->institution}}</span>
+                @php
+                    $dibuat = $threadDetail[0]->created_at->diffForHumans();
+                @endphp
+                <div>
+                    <table>
+                    <tr>
+                        <td rowspan="2">
+                            <!--- Profile Icon --->
+                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                        </td>
+                        <td>
+                            <!--- Identity --->
+                            <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong>-{{$threadDetail[0]->institution}}</span>
+                            <tr>
+                                <td>
+                                    <!--- Date --->
+                                    <i><span style="font-size: 14px; padding-left: 20px;">{{ $dibuat }}</span></i>
+                                </td>  
+                            </tr>
+                        </td>
+                    </tr>
+                    </table>  
+                </div>
             </div>
 
             <div class="thread-content">
@@ -205,8 +226,29 @@
                 <div id="comment">
                     <!--- Profile --->
                     <div class="thread-profile">
-                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                        <span style="font-size: 24px; padding-left: 20px;"><strong>{{$comment->lastname}}</strong> - {{$comment->institution}}</span>
+                        @php
+                            $dibuatcomment = $comment->created_at->diffForHumans();
+                        @endphp
+                        <div>
+                            <table>
+                            <tr>
+                                <td rowspan="2">
+                                <!--- Profile Icon --->
+                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                </td>
+                                <td>
+                                    <!--- Identity --->
+                                    <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $comment->lastname }}</strong> - {{ $comment->institution }}</span>
+                                    <tr>
+                                        <td>
+                                            <!--- Date --->
+                                            <i><span style="font-size: 14px; padding-left: 20px;">{{ $dibuatcomment }}</span></i>
+                                        </td>  
+                                    </tr>
+                                </td>
+                            </tr>
+                            </table>  
+                        </div>
                     </div>
                     <div class="thread-content">
                         <div class="thread-question">
@@ -280,10 +322,31 @@
                         <!--- Sub Komentar 1 --->
                         <div class="thread-profile" style="padding-left: 55px; padding-right: 30px;">
                             <!--- Profile --->
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                            <span style="font-size: 24px; padding-left: 20px;"><strong> {{$commentReply->lastname}}</strong> - {{$commentReply->institution}}</span>
+                            @php
+                                $dibuatreply = $commentReply->created_at->diffForHumans();
+                            @endphp
+                            <div>
+                                <table>
+                                <tr>
+                                    <td rowspan="2">
+                                    <!--- Profile Icon --->
+                                        <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                    </td>
+                                    <td>
+                                        <!--- Identity --->
+                                        <span style="font-size: 24px; padding-left: 35px;"><strong> {{ $commentReply->lastname }}</strong> - {{ $commentReply->institution }}</span>
+                                        <tr>
+                                            <td>
+                                                <!--- Date --->
+                                                <i><span style="font-size: 14px; padding-left: 35px;">{{ $dibuatreply }}</span></i>
+                                            </td>  
+                                        </tr>
+                                    </td>
+                                </tr>
+                                </table>  
+                            </div>
                             <!--- Isi Komentar --->
-                            <div class="thread-content">
+                            <div class="thread-content" style="margin-top: 10px;">
                                 <div class="thread-question">
                                     <p>{{$commentReply->body}}</p>
                                 </div>

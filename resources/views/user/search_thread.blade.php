@@ -70,11 +70,29 @@
             <div class="col-11" style="padding-left: 10%;">
                 <div class="container thread-card" onclick="location.href='{{$thr->id}}/thread'">
                     <div class="thread-profile">
+                        @php
+                            $dibuat = $thr->created_at->diffForHumans();
+                        @endphp
                         <div>
-                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                                <span style="font-size: 24px; padding-left: 20p;"><strong> {{ $thr->lastname }}</strong> - {{ $thr->institution }}</span> 
-                        </div>
-                             
+                            <table>
+                            <tr>
+                                <td rowspan="2">
+                                <!--- Profile Icon --->
+                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                </td>
+                                <td>
+                                    <!--- Identity --->
+                                    <span style="font-size: 24px; padding-left: 10px;"><strong> {{ $thr->lastname }}</strong> - {{ $thr->institution }}</span>
+                                    <tr>
+                                        <td>
+                                            {{-- <!--- Date ---> --}}
+                                             <span style="font-size: 14px; padding-left: 10px;">{{ $dibuat }}</span>
+                                        </td>  
+                                    </tr>
+                                </td>
+                            </tr>
+                            </table>  
+                        </div>   
                     </div>
 
                     <div class="thread-content">

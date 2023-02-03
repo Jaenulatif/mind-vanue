@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Thread;
+use App\Models\ThreadComment;
+use App\Models\ThreadCommentReply;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -12,21 +14,18 @@ class ThreadController extends Controller
 {
     function index($id)
     {
-        $threadDetail = DB::table('threads')
-            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
+        $threadDetail = Thread::join('mdl_user', 'user_id', '=', 'mdl_user.id')
             ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
             ->where('threads.id', '=', $id)
             ->get();
 
-        $threadDetCom = DB::table('thread_comments')
-            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('thread_comments.id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
+        $threadDetCom = ThreadComment::join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('thread_comments.id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
             ->where('thread_comments.thread_id', '=', $id)
             ->get();
 
-        $threadDetComRep = DB::table('thread_comment_replies')
-            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
+        $threadDetComRep = ThreadCommentReply::join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
             ->get();
 
         return view('user.thread', [
