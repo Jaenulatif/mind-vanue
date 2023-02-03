@@ -14,7 +14,7 @@ class ThreadController extends Controller
     {
         $threadDetail = DB::table('threads')
             ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution')
+            ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
             ->where('threads.id', '=', $id)
             ->get();
 
@@ -58,12 +58,14 @@ class ThreadController extends Controller
 
     function insert(Request $request)
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $user = Auth::user();
         $thread = new thread;
         $thread->title = $request->title;
         $thread->body = $request->body;
         $thread->user_id = $user->id;
         $thread->save();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         return redirect('user')->with('status', 'Thread Has Been created');
     }
 }
