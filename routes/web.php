@@ -31,6 +31,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['isLogin:1']], function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('admin', 'index');
+            Route::get('admin/moderator', 'moderator');
+            Route::get('admin/thread', 'thread');
+            Route::get('admin/admin/moderator', 'moderator');
+            Route::get('/thread', 'thread');
         });
     });
     Route::group(['middleware' => ['isLogin:2']], function () {
