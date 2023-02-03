@@ -162,7 +162,7 @@
                     <tr>
                         <td rowspan="2">
                             <!--- Profile Icon --->
-                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$threadDetail[0]->user_id}}/f1.jpg" width="60" height="60" >
                         </td>
                         <td>
                             <!--- Identity --->
@@ -196,7 +196,7 @@
                     <div class="row">
                         <!--- Profile--->
                         <div class="col-sm-1">
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >  
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$user->id}}/f1.jpg" width="60" height="60" >  
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
@@ -234,7 +234,7 @@
                             <tr>
                                 <td rowspan="2">
                                 <!--- Profile Icon --->
-                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$comment->user_id}}/f1.jpg" width="60" height="60" >
                                 </td>
                                 <td>
                                     <!--- Identity --->
@@ -330,7 +330,7 @@
                                 <tr>
                                     <td rowspan="2">
                                     <!--- Profile Icon --->
-                                        <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                        <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$commentReply->user_id}}/f1.jpg" width="60" height="60" >
                                     </td>
                                     <td>
                                         <!--- Identity --->

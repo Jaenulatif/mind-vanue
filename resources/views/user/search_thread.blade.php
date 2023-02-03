@@ -78,7 +78,7 @@
                             <tr>
                                 <td rowspan="2">
                                 <!--- Profile Icon --->
-                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
+                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$thr->user_id}}/f1.jpg" width="60" height="60" >
                                 </td>
                                 <td>
                                     <!--- Identity --->

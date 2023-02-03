@@ -68,7 +68,7 @@
             <div id="logout" class="cursor">
                 <div class="dropdown">
                   <!--- Profile Icon --->
-                  <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="/img/default2.png" width="40" height="40">
+                  <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" aria-expanded="false" src="http://localhost/user/pix.php/{{$user->id}}/f1.jpg" width="40" height="40">
                   <!--- Profile Dropdown Content --->
                   <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="padding-right: 5%">
                     <div class="dropdown-item">

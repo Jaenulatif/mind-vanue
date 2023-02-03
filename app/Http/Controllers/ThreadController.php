@@ -15,17 +15,17 @@ class ThreadController extends Controller
     function index($id)
     {
         $threadDetail = Thread::join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
+            ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at','user_id')
             ->where('threads.id', '=', $id)
             ->get();
 
         $threadDetCom = ThreadComment::join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('thread_comments.id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
+            ->select('thread_comments.id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at', 'user_id')
             ->where('thread_comments.thread_id', '=', $id)
             ->get();
 
         $threadDetComRep = ThreadCommentReply::join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at')
+            ->select('thread_comment_replies.id', 'thread_comment_replies.thread_comment_id', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution', 'created_at', 'user_id')
             ->get();
 
         return view('user.thread', [
