@@ -19,6 +19,9 @@ class LoginController extends Controller
 
         if (Auth::user()) {
             $user = Auth::user();
+            if (empty($user->idnumber)) {
+                 return view('index');
+            }
             if ($user->idnumber == '1') {
                 return redirect('admin');
             } elseif ($user->idnumber == '2') {
@@ -42,6 +45,9 @@ class LoginController extends Controller
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
             $user = Auth::user();
+            if (empty($user->idnumber)) {
+                 return back()->with(['loginError' => 'Role user belum di set'])->onlyInput('username');
+            }
             if ($user->idnumber == '1') {
                 return redirect('admin');
             } else if ($user->idnumber == '2' || $user->idnumber == '3') {
