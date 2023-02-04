@@ -20,7 +20,7 @@ class AdminController extends Controller
             ->select('lastname', 'institution')
             ->where('idnumber', '2')
             ->orWhere('idnumber', '3')
-            ->paginate(3);
+            ->paginate(5);
 
         return view('admin.index')->with('user', $user);
     }
@@ -32,7 +32,7 @@ class AdminController extends Controller
             ->orderBy('lastname', 'asc')
             ->select('lastname', 'institution')
             ->where('idnumber', '2')
-            ->paginate(1);
+            ->paginate(5);
 
         return view('admin.moderator_admin')->with('moderator', $moderator);
     }
@@ -44,7 +44,7 @@ class AdminController extends Controller
             ->orderBy('threads.created_at', 'desc')
             ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
             ->select('title', 'mdl_user.lastname')
-            ->paginate(3);
+            ->paginate(5);
 
         return view('admin.thread_admin')->with('thread', $thread);
     }

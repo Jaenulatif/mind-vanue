@@ -18,7 +18,8 @@ class UserController extends Controller
         $thread = thread::orderBy('threads.created_at', 'desc')
             ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
             ->select('threads.id', 'title', 'body', 'mdl_user.lastname', 'mdl_user.picture', 'mdl_user.institution','created_at','user_id')
-            ->get();
+            ->paginate(5);
+
 
         return view('user.home')->with('thread', $thread);
     }
