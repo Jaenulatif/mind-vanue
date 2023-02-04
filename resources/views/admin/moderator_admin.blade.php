@@ -62,29 +62,29 @@
 			<div class="col-sm-3">
 				<div class="container rounded p-3 mb-2" style="background-color:#F5F5F5;">
 				<center>
-					<a href="#" class="btn" name="btnradio" >Pengguna</a><br><br>
-					<a type="button" href="{{'admin/moderator'}}" class="btn">Moderator</a><br><br>
-					<a type="button" href="{{'admin/thread'}}" class="btn">
+					<a href="{{'/'}}" class="btn" name="btnradio" >Pengguna</a><br><br>
+					<a type="button" href="#" class="btn">Moderator</a><br><br>
+					<a type="button" href="{{'/thread'}}" class="btn">
 					Thread</a>
 					</center>
 				</div>
 			</div>
-			<div class="col" id="user" style="display: block;">
+			<div class="col" id="moderator" style="display: block;">
 				<table class="table-admin" bgcolor="#F5F5F5">
 					<tr>
 						<td class="td-admin" width="400px" height="50px"><center>Nama</center></td>
 						<td class="td-admin" width="400px" height="50px"><center>Prodi</center></td>
 					</tr>
-					@forelse ($user as $usr)
+					@forelse ($moderator as $mod)
 					<tr>
 						<td class="td-admin" height="50px">
 							<div class="data">
-							{{ $usr->lastname }}
+							{{ $mod->lastname }}
 							</div>
 						</td>
 						<td class="td-admin" height="50px">
 							<div class="data">
-								{{ $usr->institution }}
+								{{ $mod->institution }}
 							</div>
 						</td>
 					</tr>
@@ -94,10 +94,9 @@
 		            </div>
 					@endforelse
 				</table>
-				<br>
 				<nav aria-label="...">
 					<ul class="pagination">
-						{{ $user->links('partials.page') }}
+						{{ $moderator->links('partials.page') }}
 					</ul>
 				</nav>
 			</div>

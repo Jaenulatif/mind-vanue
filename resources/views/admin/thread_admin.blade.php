@@ -62,42 +62,41 @@
 			<div class="col-sm-3">
 				<div class="container rounded p-3 mb-2" style="background-color:#F5F5F5;">
 				<center>
-					<a href="#" class="btn" name="btnradio" >Pengguna</a><br><br>
+					<a href="{{'/'}}" class="btn" name="btnradio" >Pengguna</a><br><br>
 					<a type="button" href="{{'admin/moderator'}}" class="btn">Moderator</a><br><br>
-					<a type="button" href="{{'admin/thread'}}" class="btn">
+					<a type="button" href="#" class="btn">
 					Thread</a>
 					</center>
 				</div>
 			</div>
-			<div class="col" id="user" style="display: block;">
+			<div class="col" id="thread"  style="display: block;">
 				<table class="table-admin" bgcolor="#F5F5F5">
 					<tr>
-						<td class="td-admin" width="400px" height="50px"><center>Nama</center></td>
-						<td class="td-admin" width="400px" height="50px"><center>Prodi</center></td>
+						<td class="td-admin" width="400px" height="50px"><center>Judul Thread</center></td>
+						<td class="td-admin" width="400px" height="50px"><center>Pemilik Thread</center></td>
 					</tr>
-					@forelse ($user as $usr)
+					@forelse ($thread as $thr)
 					<tr>
 						<td class="td-admin" height="50px">
 							<div class="data">
-							{{ $usr->lastname }}
+							{{ $thr->title }}
 							</div>
 						</td>
 						<td class="td-admin" height="50px">
 							<div class="data">
-								{{ $usr->institution }}
+								{{ $thr->lastname }}
 							</div>
 						</td>
 					</tr>
 					@empty
 		            <div class="alert alert-danger">
-		                Data user belum Tersedia.
+		                Data thread belum Tersedia.
 		            </div>
 					@endforelse
 				</table>
-				<br>
 				<nav aria-label="...">
 					<ul class="pagination">
-						{{ $user->links('partials.page') }}
+						{{ $thread->links('partials.page') }}
 					</ul>
 				</nav>
 			</div>

@@ -21,11 +21,16 @@
 </head>
 <body style="background-color: #AAAAAA;">
 	@include('partials.navbar')
+	@php
+		global $DB, $OUTPUT;
+        $user = Auth::user();
+   
+    @endphp
 	<div class="container-fluid" style="margin-top: 7%;">
 		<div class="row">
 			<div class="col-4" style="padding-left: 15%;">
 				<div class="avatar">
-					<img src="/img/default2.png" class="rounded-circle img-profile" alt="Avatar" />
+					<img src="http://localhost/user/pix.php/{{$user->id}}/f1.jpg" class="rounded-circle img-profile" alt="Avatar" />
 				</div>
 			</div>
 			<div class="col-5" style="margin-left: 5%;">

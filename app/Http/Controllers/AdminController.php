@@ -14,26 +14,39 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $thread = DB::table('threads')
-            ->orderBy('threads.created_at', 'desc')
-            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
-            ->select('title', 'mdl_user.lastname')
-            ->get();
 
         $user = DB::table('mdl_user')
             ->orderBy('lastname', 'asc')
             ->select('lastname', 'institution')
             ->where('idnumber', '2')
             ->orWhere('idnumber', '3')
-            ->get();
+            ->paginate(3);
+
+        return view('admin.index')->with('user', $user);
+    }
+
+    public function moderator()
+    {
 
         $moderator = DB::table('mdl_user')
             ->orderBy('lastname', 'asc')
             ->select('lastname', 'institution')
             ->where('idnumber', '2')
-            ->get();
+            ->paginate(1);
 
-        return view('admin.index')->with('thread', $thread)->with('user', $user)->with('moderator', $moderator);
+        return view('admin.moderator_admin')->with('moderator', $moderator);
+    }
+
+    public function thread()
+    {
+
+        $thread = DB::table('threads')
+            ->orderBy('threads.created_at', 'desc')
+            ->join('mdl_user', 'user_id', '=', 'mdl_user.id')
+            ->select('title', 'mdl_user.lastname')
+            ->paginate(3);
+
+        return view('admin.thread_admin')->with('thread', $thread);
     }
 
     /**

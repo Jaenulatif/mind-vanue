@@ -154,8 +154,29 @@
         <!--- Thread --->
     	<div class="container thread-card">
             <div class="thread-profile">
-                 <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                 <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong> - {{$threadDetail[0]->institution}}</span>
+                @php
+                    $dibuat = $threadDetail[0]->created_at->diffForHumans();
+                @endphp
+                <div>
+                    <table>
+                    <tr>
+                        <td rowspan="2">
+                            <!--- Profile Icon --->
+                            <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$threadDetail[0]->user_id}}/f1.jpg" width="60" height="60" >
+                        </td>
+                        <td>
+                            <!--- Identity --->
+                            <span style="font-size: 24px; padding-left: 20px;"><strong> {{$threadDetail[0]->lastname}}</strong>-{{$threadDetail[0]->institution}}</span>
+                            <tr>
+                                <td>
+                                    <!--- Date --->
+                                    <i><span style="font-size: 14px; padding-left: 20px;">{{ $dibuat }}</span></i>
+                                </td>  
+                            </tr>
+                        </td>
+                    </tr>
+                    </table>  
+                </div>
             </div>
 
             <div class="thread-content">
@@ -175,7 +196,7 @@
                     <div class="row">
                         <!--- Profile--->
                         <div class="col-sm-1">
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >  
+                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$user->id}}/f1.jpg" width="60" height="60" >  
                         </div>
                         <!--- Input Komentar--->
                         <div class="col" >
@@ -198,17 +219,36 @@
             <div class="container thread-card">
                @php
                     $modal = 0;
+                    $modalin = 0;
                 @endphp
                 @foreach ($threadDetCom as $comment)
-                @php
-                    $modal += 1;
-                @endphp
                 <!--- Komentar 1 --->
                 <div id="comment">
                     <!--- Profile --->
                     <div class="thread-profile">
-                        <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                        <span style="font-size: 24px; padding-left: 20px;"><strong>{{$comment->lastname}}</strong> - {{$comment->institution}}</span>
+                        @php
+                            $dibuatcomment = $comment->created_at->diffForHumans();
+                        @endphp
+                        <div>
+                            <table>
+                            <tr>
+                                <td rowspan="2">
+                                <!--- Profile Icon --->
+                                    <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$comment->user_id}}/f1.jpg" width="60" height="60" >
+                                </td>
+                                <td>
+                                    <!--- Identity --->
+                                    <span style="font-size: 24px; padding-left: 20px;"><strong> {{ $comment->lastname }}</strong> - {{ $comment->institution }}</span>
+                                    <tr>
+                                        <td>
+                                            <!--- Date --->
+                                            <i><span style="font-size: 14px; padding-left: 20px;">{{ $dibuatcomment }}</span></i>
+                                        </td>  
+                                    </tr>
+                                </td>
+                            </tr>
+                            </table>  
+                        </div>
                     </div>
                     <div class="thread-content">
                         <div class="thread-question">
@@ -221,14 +261,17 @@
                             <span class="inline-icon material-icons" style="margin-right: 40px; margin-top: 10px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
                         </a>
                         @if ($user->idnumber == 2)
+                        @php
+                            $modal += 1;
+                        @endphp
                         <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm{{$modal}}">
                             <span class="inline-icon material-icons" style="color: black; font-size: 30px;margin-right: 20px;">delete</span>
                          </button>
-                         <div class="modal fade" id="confirm{{$modal}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         <div class="modal fade" id="confirm{{$modal}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$modal}}" aria-hidden="true">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Hapus comment <i>{{$comment->lastname}}</i></h5>
+                                <h5 class="modal-title" id="exampleModalLabel{{$modal}}">Hapus comment <i>{{$comment->lastname}}</i></h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -274,21 +317,36 @@
                             </div>
                         </form>
                     </div>
-                     @php
-                        $modalin = 0;
-                    @endphp
                     @foreach($threadDetComRep as $commentReply)
-                    @php
-                        $modalin += 1;
-                    @endphp
                         @if($comment->id == $commentReply->thread_comment_id)
                         <!--- Sub Komentar 1 --->
                         <div class="thread-profile" style="padding-left: 55px; padding-right: 30px;">
                             <!--- Profile --->
-                            <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="60" height="60" >
-                            <span style="font-size: 24px; padding-left: 20px;"><strong> {{$commentReply->lastname}}</strong> - {{$commentReply->institution}}</span>
+                            @php
+                                $dibuatreply = $commentReply->created_at->diffForHumans();
+                            @endphp
+                            <div>
+                                <table>
+                                <tr>
+                                    <td rowspan="2">
+                                    <!--- Profile Icon --->
+                                        <img class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$commentReply->user_id}}/f1.jpg" width="60" height="60" >
+                                    </td>
+                                    <td>
+                                        <!--- Identity --->
+                                        <span style="font-size: 24px; padding-left: 35px;"><strong> {{ $commentReply->lastname }}</strong> - {{ $commentReply->institution }}</span>
+                                        <tr>
+                                            <td>
+                                                <!--- Date --->
+                                                <i><span style="font-size: 14px; padding-left: 35px;">{{ $dibuatreply }}</span></i>
+                                            </td>  
+                                        </tr>
+                                    </td>
+                                </tr>
+                                </table>  
+                            </div>
                             <!--- Isi Komentar --->
-                            <div class="thread-content">
+                            <div class="thread-content" style="margin-top: 10px;">
                                 <div class="thread-question">
                                     <p>{{$commentReply->body}}</p>
                                 </div>
@@ -298,14 +356,17 @@
                                         <span class="inline-icon material-icons" style="margin-right: 20px;margin-top: 10px; width: 20px; height: 40px; color: black; font-size: 34px;">reply</span>
                                     </a>
                                     @if ($user->idnumber == 2)
-                                    <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm{{$modalin}}">
+                                    @php
+                                        $modalin += 1;
+                                    @endphp
+                                    <button class="btn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmin{{$modalin}}">
                                         <span class="inline-icon material-icons" style="color: black; font-size: 30px;">delete</span>
                                      </button>
-                                     <div class="modal fade" id="confirm{{$modalin}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                     <div class="modal fade" id="confirmin{{$modalin}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$modalin}}" aria-hidden="true">
                                       <div class="modal-dialog">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Hapus comment <i>{{$commentReply->lastname}}</i></h5>
+                                            <h5 class="modal-title" id="exampleModalLabel{{$modalin}}">Hapus comment <i>{{$commentReply->lastname}}</i></h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
