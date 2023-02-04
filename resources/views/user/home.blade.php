@@ -151,6 +151,12 @@
             </div>
         <!--- Thread 1 --->
          @endforelse
+        <nav aria-label="..." style="margin-left: 45%; margin-top:50px">
+                <ul class="pagination">
+                        {{ $thread->links('partials.page') }}
+                </ul>
+        </nav>
+         
 
     </div>
     
