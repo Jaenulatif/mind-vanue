@@ -76,7 +76,7 @@
                             <tr>
                                 <td rowspan="2">
                                 <!--- Profile Icon --->
-                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="/img/default2.png" width="40" height="40" >  
+                                    <img class="dropdown-toggle rounded-circle"  data-bs-toggle="dropdown" src="http://localhost/user/pix.php/{{$user->id}}/f1.jpg" width="40" height="40" >  
                                 </td>
                                 <td style="padding-left: 4%;">
                                     <!--- Email --->
